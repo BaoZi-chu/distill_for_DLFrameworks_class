@@ -153,7 +153,7 @@ https://1drv.ms/f/c/3c1547dca7a7eaf5/EmDyuLbw4INKsjRZLfJWKXYBuyCA2jB4Vxk_8I6qXm4
 
 Below are the test results for both the teacher and student models for Faster R-CNN and YOLOX, presented in a table format:
 
-The random seed of the test is 0. Due to the computational power limitation, the distillation effect is average at present. Among them, Faster R-CNN shrinks by 25% and yolox shrinks by 25%.
+The random seed of the test is 0. Due to the computational power limitation, the distillation effect is average at present. Among them, Faster R-CNN shrinks by 30% and yolox shrinks by 25%.
 
 | Metric                                | Faster R-CNN Teacher | Faster R-CNN Student | YOLOX Teacher | YOLOX Student |
 |---------------------------------------|----------------------|----------------------|---------------|---------------|
