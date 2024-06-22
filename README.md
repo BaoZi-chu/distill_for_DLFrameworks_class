@@ -15,6 +15,7 @@
     - [Model Distillation](#model-distillation)
       - [Training](#training-1)
       - [Testing](#testing-1)
+  - [Test Results](test-results)
 
 ## Introduction
 
@@ -46,7 +47,7 @@ The project contains two main folders: `faster_rcnn_distill` for Faster R-CNN di
 To prepare the COCO 2017 dataset, follow these steps:
 
 ```bash
-cd data/coco
+cd data/coco2017
 # Download COCO 2017 training and validation sets
 wget http://images.cocodataset.org/zips/train2017.zip
 wget http://images.cocodataset.org/zips/val2017.zip
@@ -74,7 +75,7 @@ Set up the environment for Faster R-CNN:
 ```bash
 conda install pytorch torchvision -c pytorch
 ```
-
+The required torch version is different from that based on mmdetection.
 #### Training
 
 To train the Faster R-CNN model, run:
@@ -146,4 +147,26 @@ To test the YOLOX model, run:
 ```bash
 python mmdetection_distill_yolo/distill/test.py
 ```
+## Trained Weights
+https://1drv.ms/f/c/3c1547dca7a7eaf5/EmDyuLbw4INKsjRZLfJWKXYBuyCA2jB4Vxk_8I6qXm4RxA?e=Y99xLo
+## Test Results
+
+Below are the test results for both the teacher and student models for Faster R-CNN and YOLOX, presented in a table format:
+
+The random seed of the test is 0. Due to the computational power limitation, the distillation effect is average at present. Among them, Faster R-CNN shrinks by 25% and yolox shrinks by 25%.
+
+| Metric                                | Faster R-CNN Teacher | Faster R-CNN Student | YOLOX Teacher | YOLOX Student |
+|---------------------------------------|----------------------|----------------------|---------------|---------------|
+| Average Precision (AP) @ IoU=0.50:0.95 | 0.403                | 0.237                | 0.370         | 0.152         |
+| Average Precision (AP) @ IoU=0.50      | 0.591                | 0.421                | 0.585         | 0.284         |
+| Average Precision (AP) @ IoU=0.75      | 0.434                | 0.238                | 0.398         | 0.149         |
+| Average Precision (AP) @ IoU=0.50:0.95 (small) | 0.235                | 0.135                | 0.212         | 0.068         |
+| Average Precision (AP) @ IoU=0.50:0.95 (medium) | 0.445                | 0.255                | 0.404         | 0.171         |
+| Average Precision (AP) @ IoU=0.50:0.95 (large)  | 0.532                | 0.309                | 0.482         | 0.195         |
+| Average Recall (AR) @ IoU=0.50:0.95   | 0.549                | 0.240                | 0.500         | 0.286         |
+| Average Recall (AR) @ IoU=0.50:0.95 (1 detection) | 0.491                | 0.398                | 0.308         | 0.286         |
+| Average Recall (AR) @ IoU=0.50:0.95 (10 detections) | 0.601                | 0.418                | 0.485         | 0.171         |
+| Average Recall (AR) @ IoU=0.50:0.95 (small) | 0.346                | 0.234                | 0.316         | 0.119         |
+| Average Recall (AR) @ IoU=0.50:0.95 (medium) | 0.549                | 0.452                | 0.544         | 0.322         |
+| Average Recall (AR) @ IoU=0.50:0.95 (large)  | 0.693                | 0.538                | 0.649         | 0.347         |
 
