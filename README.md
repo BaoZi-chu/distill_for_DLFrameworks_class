@@ -38,9 +38,11 @@ This project involves distillation for Faster R-CNN and YOLOX based on MMDetecti
 
 The project contains two main folders: `faster_rcnn_distill` for Faster R-CNN distillation and `mmdetection_distill_yolo` for YOLOX distillation.
 
-- [ ] Test results
+The model distillation was done using the feature map distillation with f1 function or mse function .
+
+- [x] Test results
 - [x] Training guide
-- [ ] Upload weights to public path
+- [x] Upload weights to public path
 
 ## Data Preparation
 
